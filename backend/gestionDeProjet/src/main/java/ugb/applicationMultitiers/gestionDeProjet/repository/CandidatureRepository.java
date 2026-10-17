@@ -15,4 +15,6 @@ public interface CandidatureRepository extends JpaRepository<Candidature, Long> 
     List<Candidature> findBySujetId(Long sujetId);
 
     long countBySujetIdAndStatut(Long sujetId, Statut statut);
+
+    List<Candidature> findByStatut(Statut statut);
 }
