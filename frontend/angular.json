@@ -1,0 +1,46 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "gestion-projets-tutores": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/gestion-projets-tutores",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [],
+            "styles": ["src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": { "budgets": [{ "type": "initial", "maximumWarning": "1mb", "maximumError": "2mb" }], "outputHashing": "all" },
+            "development": { "optimization": false, "extractLicenses": false, "sourceMap": true }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": { "proxyConfig": "src/proxy.conf.json" },
+          "configurations": {
+            "production": { "buildTarget": "gestion-projets-tutores:build:production" },
+            "development": { "buildTarget": "gestion-projets-tutores:build:development" }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "95fe9c5e-0f53-4ea0-94a6-65851368c2f7"
+  }
+}
